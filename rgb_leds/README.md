@@ -27,5 +27,5 @@ because I didn't have 6 of the same ones, but I tried to keep the same for each 
 ## how to run
 1. i assume you know how to install the arduino IDE.
 2. open the file on arduino IDE.
-3. connect them accordingly
+3. connect them accordingly.
 4. upload the file to the arduino!
