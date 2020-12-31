@@ -1,7 +1,9 @@
 # RGB_LED
 
 hi! today we're playing with multiple potentiometers and RGB LEDs. I have different resistors purely 
-because I didn't have 6 of the same ones, but I tried to keep the same for each LED. EDIT: The photo uses the wrong
+because I didn't have 6 of the same ones, but I tried to keep the same for each LED. 
+
+**EDIT:** The photo uses the wrong
 GPIO pins. Must use PWM GPIO pins to use in-between RGB values.
 
 # tools used
@@ -24,7 +26,8 @@ GPIO pins. Must use PWM GPIO pins to use in-between RGB values.
 - how to use continuity on a multimeter
 - difference between a common cathode and a common anode RGB LED & how to differentiate
 - analog voltage
-EDIT: RGB LED requires using PWM GPIO pins, so it's a smoother light up.
+
+**EDIT:** RGB LED requires using PWM GPIO pins, so it's a smoother light up.
 
 ## how to run
 1. i assume you know how to install the arduino IDE.
