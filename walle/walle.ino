@@ -1,9 +1,15 @@
 #include <AFMotor.h>
+#include <Servo.h>
+const int trig_pin = A1;
+const int echo_pin = A0;
+const int trig_delay = 5; //ms
 
 AF_DCMotor motorRL(1);
 AF_DCMotor motorRR(2);
 AF_DCMotor motorFR(3);
 AF_DCMotor motorFL(4);
+
+Servo myServo;
 
 void setup() {
   motorRL.setSpeed(200);
@@ -15,26 +21,57 @@ void setup() {
   motorRR.run(RELEASE);
   motorFR.run(RELEASE);
   motorFL.run(RELEASE);
+  Serial.begin(9600);
+  myServo.attach(10);
+  myServo.write(90);
+  delay(250);
+
 }
 
 void loop() {
+  long duration;
+  float distance;
+
+  pinMode(trig_pin , OUTPUT);
+  digitalWrite(trig_pin, 0);
+  delayMicroseconds(10);
+  digitalWrite(trig_pin, 255);
+  delayMicroseconds(trig_delay);
+  digitalWrite(trig_pin, 0);
+
+  pinMode(echo_pin, INPUT);
+  duration = pulseIn(echo_pin, HIGH);
+  distance = duration / 58.8;
+
   uint8_t i;
+  uint8_t num;
 
-  forward(255);
+  Serial.print("distance: ");
+  Serial.println(distance);
   delay(500);
-  
-  reverse(255);
-  delay(1000);
-  left(150);
-  delay(250);
-  forward(255);
-  delay(250);
-  right(150);
-  delay(250);
-  reverse(255);
-  delay(100);
-  brakes();
-
+  if (distance < 10) {
+    //    backward(127);
+    delay(250);
+    num = random(0, 2);
+    if (num == 0) {
+      //      myServo.write(180);
+      //      delay(15);
+      if (distance > 20) {
+        //        left(127);
+        delay(500);
+      }
+      else {
+        //        myServo.write(0);
+        //        delay(15);
+        if (distance > 20) {
+          //          right(127);
+          delay(500);
+        }
+      }
+    }
+  } else {
+    //    forward(127);
+  }
 }
 
 void forward(int speed) {
@@ -68,6 +105,8 @@ void left(int speed) {
     speed = 255;
   }
 
+  myServo.write(90);
+  delay(15);
   // Turn left at half speed for 1 second
   // Right motor spins forward and left motor stops or spins backward
   motorRL.run(RELEASE);
@@ -91,6 +130,8 @@ void right(int speed) {
     speed = 255;
   }
 
+  myServo.write(90);
+  delay(15);
   // Turn right at half speed for 1 second
   // Left motor spins forward and right motor stops or spins backward
   motorRL.run(FORWARD);
