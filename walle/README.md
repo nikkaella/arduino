@@ -1,4 +1,4 @@
-# WALL-E
+# WALL-DO
 
 today we're playing with DC motors!
 
