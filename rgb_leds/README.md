@@ -1,5 +1,7 @@
 # RGB_LED
 
+![RGB LED project](rgb_led_pic.png)
+
 hi! today we're playing with multiple potentiometers and RGB LEDs. I have different resistors purely 
 because I didn't have 6 of the same ones, but I tried to keep the same for each LED. 
 
