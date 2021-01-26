@@ -1,4 +1,7 @@
 # JUKEBOX
+
+![Jukebox](jukebox.jpg)
+
 hi! today we're playing with a piezo and an LCD. this jukebox exhibits disney songs like "Part of Your World", "Love is an Open Door", and "The Bare Necessities". it also has "Alouette" just for fun.
 
 # tools used
